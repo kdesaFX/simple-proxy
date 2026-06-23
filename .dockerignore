@@ -1,0 +1,11 @@
+node_modules
+*.log*
+.nitro
+.cache
+.output
+.env
+.git
+.github
+dist
+src/**/*.test.ts
+vitest.config.ts

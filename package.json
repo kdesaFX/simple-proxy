@@ -1,0 +1,36 @@
+{
+  "name": "simple-proxy",
+  "private": true,
+  "version": "2.2.4",
+  "scripts": {
+    "prepare": "nitropack prepare",
+    "dev": "nitropack dev",
+    "build": "nitropack build",
+    "build:cloudflare": "NITRO_PRESET=cloudflare nitropack build",
+    "build:aws": "NITRO_PRESET=aws_lambda nitropack build",
+    "build:node": "NITRO_PRESET=node-server nitropack build",
+    "build:netlify": "NITRO_PRESET=netlify_edge nitropack build",
+    "start": "node .output/server/index.mjs",
+    "lint": "oxlint src/ && prettier --check src/",
+    "lint:fix": "oxlint --fix src/ && prettier --write src/",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "h3": "^1.15.5",
+    "nitropack": "^2.13.1"
+  },
+  "devDependencies": {
+    "@rollup/wasm-node": "^4.52.4",
+    "@types/node": "^24.7.2",
+    "oxlint": "^1.51.0",
+    "prettier": "^3.8.1",
+    "vitest": "^4.0.18"
+  },
+  "pnpm": {
+    "overrides": {
+      "rollup": "npm:@rollup/wasm-node"
+    }
+  },
+  "packageManager": "pnpm@10.18.3"
+}
